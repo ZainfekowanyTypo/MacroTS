@@ -11,5 +11,6 @@ Program loads files with .macrots extension.
 - type (text) <---- WIP
 - delay (time in seconds)
 - setting
+
 More operations coming soon
 
