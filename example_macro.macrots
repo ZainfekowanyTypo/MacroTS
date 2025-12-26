@@ -1,0 +1,4 @@
+setting autogui_pause=0
+
+type Hello World!
+press enter
