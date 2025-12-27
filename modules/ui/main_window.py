@@ -85,7 +85,7 @@ class MainWindow:
 
         self.app.protocol("WM_DELETE_WINDOW", self.on_close)
 
-    # ---------------------------- Utility Methods ----------------------------
+    # UTILITY METHODS
 
     def display_operations(self):
         # Clear previous
@@ -186,7 +186,7 @@ class MainWindow:
             print(f"Unbound {self.file_path}")
             self.update_bound_label()
 
-    # ---------------------------- UI Methods ----------------------------
+    # UI METHODS
 
     def open_settings(self):
         settings_window.open_settings(self.app)
