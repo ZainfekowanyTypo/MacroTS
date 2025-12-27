@@ -32,7 +32,7 @@ def bind_macro(key, file_path):
 
     # Add new binding
     bindings[key] = file_path
-    save_bindings()  # Persist to file
+    save_bindings()
 
 def unbind_macro(macro_path):
     reverse = {v: k for k, v in bindings.items()}
