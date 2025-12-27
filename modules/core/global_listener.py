@@ -10,7 +10,6 @@ def macro_thread_runner(file_path, loop_type, loop_count, on_finish_callback):
     stop_event.clear()
 
     def patched_sleep(seconds):
-        # Replace sleep to check for stop flag
         import time
         elapsed = 0
         interval = 0.05
@@ -23,7 +22,7 @@ def macro_thread_runner(file_path, loop_type, loop_count, on_finish_callback):
     import builtins
     original_sleep = builtins.sleep if hasattr(builtins, "sleep") else None
     import time
-    builtins.sleep = patched_sleep  # patch sleep
+    builtins.sleep = patched_sleep
 
     try:
         run_macro.execute_macro(file_path, loop_type, loop_count)
