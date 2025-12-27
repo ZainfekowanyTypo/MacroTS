@@ -4,10 +4,6 @@ from time import sleep
 available_operations = ["press", "delay", "setting", "click", "type"]
 
 def execute_macro(file_path, loop_type="once", loop_count=1, stop_event=None):
-    """
-    Run a macro file.
-    stop_event: threading.Event to stop execution immediately
-    """
     operations = []
     settings = []
 
