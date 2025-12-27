@@ -4,11 +4,11 @@ from modules.core import settings as s
 from modules.core import bindings as b
 
 settings_window = None
-_parent_window = None  # store the parent
+_parent_window = None
 
 def open_settings(parent):
     global settings_window, _parent_window
-    _parent_window = parent  # store the parent reference
+    _parent_window = parent
     if settings_window and settings_window.winfo_exists():
         settings_window.focus()
         return
@@ -21,7 +21,7 @@ def open_settings(parent):
     settings_window.transient(parent)
     settings_window.grab_set()
 
-    # ------------------ Scram Key Section ------------------
+    # SCRAM KEY
     scram_frame = ctk.CTkFrame(settings_window)
     scram_frame.pack(pady=10, padx=10, fill="x")
     scram_title = ctk.CTkLabel(scram_frame, text="Scram Key", font=ctk.CTkFont(size=16, weight="bold"))
@@ -35,7 +35,7 @@ def open_settings(parent):
                 k = str(key)
             b.bind_scram(k)
             listener.stop()
-            if _parent_window:  # make sure parent exists
+            if _parent_window:
                 _parent_window.after(0, refresh_settings)
                 
         listener = keyboard.Listener(on_press=on_press)
@@ -58,7 +58,7 @@ def open_settings(parent):
         bind_btn = ctk.CTkButton(scram_frame, text="Bind Scram Key", command=bind_scram)
         bind_btn.pack(pady=5)
 
-    # ------------------ Theme Section ------------------
+    # THEMES
     theme_frame = ctk.CTkFrame(settings_window)
     theme_frame.pack(pady=10, padx=10, fill="x")
     theme_title = ctk.CTkLabel(theme_frame, text="Theme", font=ctk.CTkFont(size=16, weight="bold"))
@@ -68,7 +68,7 @@ def open_settings(parent):
     theme_menu = ctk.CTkOptionMenu(theme_frame, values=["System", "Light", "Dark"], variable=theme_var)
     theme_menu.pack(pady=5)
 
-    # ------------------ Replay Section ------------------
+    # REPLAY
     replay_frame = ctk.CTkFrame(settings_window)
     replay_frame.pack(pady=10, padx=10, fill="x")
     replay_title = ctk.CTkLabel(replay_frame, text="Macro Replay", font=ctk.CTkFont(size=16, weight="bold"))
@@ -86,7 +86,7 @@ def open_settings(parent):
     infinite_radio = ctk.CTkRadioButton(replay_frame, text="Play infinitely until pressed again", variable=replay_var, value="infinite")
     infinite_radio.pack(pady=2)
 
-    # ------------------ Buttons ------------------
+    # BUTTONS
     button_frame = ctk.CTkFrame(settings_window, fg_color="transparent")
     button_frame.pack(pady=20)
     cancel_btn = ctk.CTkButton(button_frame, text="Cancel", command=close_settings_window)
@@ -107,7 +107,7 @@ def close_settings_window():
 def refresh_settings():
     global _parent_window
     close_settings_window()
-    if _parent_window:  # only reopen if parent exists
+    if _parent_window:
         open_settings(_parent_window)
 
 def reset_to_defaults():
