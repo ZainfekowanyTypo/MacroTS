@@ -1,5 +1,5 @@
 # MacroTS
-A simple free macro program made by a dummy for other dummies
+A simple free macro program made by a dummy for other dummies.
 Program allows for simple macro playability by pressing a specified key on your keyboard. Macro supports keyboard presses, mouse presses at a specified position or the current position. Also allows for simple delay management and more.
 I've made it merely for fun, do not expect much from this software.
 
